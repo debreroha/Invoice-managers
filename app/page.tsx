@@ -1,10 +1,8 @@
-export default function Page() {
+export default function HomePage() {
   return (
-  <>
-    <h1>Hello, Next.js!</h1>
-    <p>welcome to nextJs project</p>
-    
-    
-  </>
-  )
+    <div>
+      <h1>Welcome to Invoice Manager</h1>
+      <p>This is a simple invoice management application.</p>
+    </div>
+  );
 }
