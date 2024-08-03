@@ -8,7 +8,7 @@ interface InvoiceData {
   clientName: string;
   clientEmail: string;
   items: string;
-  totalAmount: number;
+  totalAmount: number; // Assume amount is in ETB
   dueDate: string;
 }
 
@@ -28,7 +28,7 @@ export default function CreateInvoice() {
     const { name, value } = e.target;
     setInvoiceData({
       ...invoiceData,
-      [name]: value
+      [name]: name === 'totalAmount' ? parseFloat(value) : value
     });
   };
 
@@ -50,12 +50,54 @@ export default function CreateInvoice() {
     <div>
       <h1>Create Invoice</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="invoiceNumber" placeholder="Invoice Number" onChange={handleChange} required />
-        <input type="text" name="clientName" placeholder="Client Name" onChange={handleChange} required />
-        <input type="email" name="clientEmail" placeholder="Client Email" onChange={handleChange} required />
-        <textarea name="items" placeholder="Items" onChange={handleChange} required />
-        <input type="number" name="totalAmount" placeholder="Total Amount" onChange={handleChange} required />
-        <input type="date" name="dueDate" placeholder="Due Date" onChange={handleChange} required />
+        <input
+          type="text"
+          name="invoiceNumber"
+          placeholder="Invoice Number"
+          value={invoiceData.invoiceNumber}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="clientName"
+          placeholder="Client Name"
+          value={invoiceData.clientName}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="clientEmail"
+          placeholder="Client Email"
+          value={invoiceData.clientEmail}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="items"
+          placeholder="Itemized List of Products/Services"
+          value={invoiceData.items}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="totalAmount"
+          placeholder="Total Amount (ETB)"
+          value={invoiceData.totalAmount}
+          onChange={handleChange}
+          required
+          step="0.01" // Allow decimal values
+        />
+        <input
+          type="date"
+          name="dueDate"
+          placeholder="Due Date"
+          value={invoiceData.dueDate}
+          onChange={handleChange}
+          required
+        />
         <button type="submit">Create Invoice</button>
       </form>
     </div>
