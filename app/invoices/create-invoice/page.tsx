@@ -39,33 +39,37 @@ export default function CreateInvoice() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Create Invoice</h1>
-      <label>
-        Invoice Number:
-        <input type="text" value={invoiceNumber} onChange={(e) => setInvoiceNumber(e.target.value)} />
-      </label>
-      <label>
-        Client Name:
-        <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
-      </label>
-      <label>
-        Client Email:
-        <input type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
-      </label>
-      <label>
-        Items:
-        <textarea value={items} onChange={(e) => setItems(e.target.value)} />
-      </label>
-      <label>
-        Total Amount (ETB):
-        <input type="number" value={totalAmount || ''} onChange={(e) => setTotalAmount(Number(e.target.value))} />
-      </label>
-      <label>
-        Due Date:
-        <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
-      </label>
-      <button type="submit">Create Invoice</button>
-    </form>
+    <>
+      <h1 className='flex justify-center ... mb-5 text-3xl font-bold underline'>Create Invoice</h1>
+      <div className='flex justify-center ...'>
+      <form onSubmit={handleSubmit} className='grid grid-cols-2 grid-rows-4 gap-x-5 justify-items-stretch ... '>
+        <label>
+          InvoiceNum:
+          <input className='placeholder-black-500 ...' type="text" value={invoiceNumber} onChange={(e) => setInvoiceNumber(e.target.value)} />
+        </label>
+        <label className='justify-self-center '>
+          ClientName:
+          <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+        </label>
+        <label>
+          ClientEmail:
+          <input type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+        </label>
+        <label className='justify-self-center '>
+          Services:
+          <textarea value={items} onChange={(e) => setItems(e.target.value)} />
+        </label>
+        <label>
+          TotalAmount (ETB):
+          <input type="number" value={totalAmount || ''} onChange={(e) => setTotalAmount(Number(e.target.value))} />
+        </label>
+        <label className='justify-self-center'>
+          Due Date:
+          <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+        </label>
+        <button type="submit" className='bg-green-500 bg-opacity-75 col-span-2 ... text-black hover:text-red-700 ...'>Create Invoice</button>
+      </form>
+      </div>
+    </>
   );
 }

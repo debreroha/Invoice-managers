@@ -13,13 +13,13 @@ export default function RootLayout({
   return (
     <html>
       <body>
-      <div className='justify-center'>
-        <header className='justify-center'>
+      <div className='grid grid-cols-1 gap-4'>
+        <header className='flex justify-center ...'>
           
-          <nav className='justify-center'> 
-            <Link className='gap-y-px'   href="/">Home</Link>            
-            <Link href="/invoices">View Invoices</Link>
-            <Link href="/invoices/create-invoice">Create Invoice</Link>
+          <nav className='p-2 text-purple-600 ... no-underline hover:underline ...'> 
+            <Link className='pl-3'   href="/">Home</Link>            
+            <Link className='pl-3' href="/invoices">View-Invoices</Link>
+            <Link className='pl-3' href="/invoices/create-invoice">Create-Invoice</Link>
           </nav>
         </header>
         <main>{children}</main>

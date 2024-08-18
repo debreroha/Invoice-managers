@@ -43,38 +43,40 @@ export default function InvoicesList() {
   };
 
   return (
-    <div>
-      <h1>Invoices List</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Invoice Number</th>
-            <th>Client Name</th>
-            <th>Client Email</th>
-            <th>Services</th>
-            <th>Total Amount (ETB)</th>
-            <th>Due Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {invoices.map((invoice) => (
-            <tr key={invoice.id}>
-              <td>{invoice.invoiceNumber}</td>
-              <td>{invoice.clientName}</td>
-              <td>{invoice.clientEmail}</td>
-              <td>{invoice.items}</td>
-              <td>{invoice.totalAmount.toFixed(2)} ETB</td>
-              <td>{invoice.dueDate}</td>
-              <td>
-                <Link href={`/invoices/${invoice.id}/edit`}>Edit</Link>
-                <Link href={`/invoices/${invoice.id}/delete`}>delete</Link>
-                {/* <button onClick={() => handleDelete(invoice.id)}>Delete</button> */}
-              </td>
+    <>
+      <h1 className='flex justify-center ... mb-4 text-3xl font-bold underline'>Invoices List</h1>
+      <div className='flex justify-center ...'>
+        <table>
+          <thead>
+            <tr>
+              <th>InvoiceNum</th>
+              <th>Client Name</th>
+              <th>Client Email</th>
+              <th>Services</th>
+              <th>Total Amount (ETB)</th>
+              <th>Due Date</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {invoices.map((invoice) => (
+              <tr key={invoice.id}>
+                <td>{invoice.invoiceNumber}</td>
+                <td>{invoice.clientName}</td>
+                <td>{invoice.clientEmail}</td>
+                <td>{invoice.items}</td>
+                <td>{invoice.totalAmount.toFixed(2)} ETB</td>
+                <td>{invoice.dueDate}</td>
+                <td>
+                  <Link className='ml-5 pr-4' href={`/invoices/${invoice.id}/edit`}>Edit</Link>
+                  <Link href={`/invoices/${invoice.id}/delete`}>delete</Link>
+                  {/* <button onClick={() => handleDelete(invoice.id)}>Delete</button> */}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
