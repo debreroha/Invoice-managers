@@ -16,10 +16,10 @@ export default function RootLayout({
       <div className='grid grid-cols-1 gap-4'>
         <header className='flex justify-center ...'>
           
-          <nav className='p-2 text-purple-600 ... no-underline hover:underline ...'> 
-            <Link className='pl-3'   href="/">Home</Link>            
-            <Link className='pl-3' href="/invoices">View-Invoices</Link>
-            <Link className='pl-3' href="/invoices/create-invoice">Create-Invoice</Link>
+          <nav className='p-2 text-purple-600 text-1xl font-bold no-underline ...'> 
+            <Link className='pl-3 hover:underline' href="/">Home</Link>            
+            <Link className='pl-3 hover:underline' href="/invoices">View-Invoices</Link>
+            <Link className='pl-3 hover:underline' href="/invoices/create-invoice">Create-Invoice</Link>
           </nav>
         </header>
         <main>{children}</main>

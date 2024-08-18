@@ -45,29 +45,29 @@ export default function CreateInvoice() {
       <form onSubmit={handleSubmit} className='grid grid-cols-2 grid-rows-4 gap-x-5 justify-items-stretch ... '>
         <label>
           InvoiceNum:
-          <input className='placeholder-black-500 ...' type="text" value={invoiceNumber} onChange={(e) => setInvoiceNumber(e.target.value)} />
+          <input className='ml-1 border-2 border-black-900 ...' type="text" value={invoiceNumber} onChange={(e) => setInvoiceNumber(e.target.value)} />
         </label>
         <label className='justify-self-center '>
           ClientName:
-          <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+          <input className='ml-1 border-2 border-black-900 ...' type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
         </label>
         <label>
           ClientEmail:
-          <input type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+          <input className='ml-1 border-2 border-black-900 ...' type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
         </label>
         <label className='justify-self-center '>
           Services:
-          <textarea value={items} onChange={(e) => setItems(e.target.value)} />
+          <textarea className='ml-1 border-2 border-black-900 ...' value={items} onChange={(e) => setItems(e.target.value)} />
         </label>
         <label>
           TotalAmount (ETB):
-          <input type="number" value={totalAmount || ''} onChange={(e) => setTotalAmount(Number(e.target.value))} />
+          <input className='ml-1 border-2 border-black-900 ...' type="number" value={totalAmount || ''} onChange={(e) => setTotalAmount(Number(e.target.value))} />
         </label>
         <label className='justify-self-center'>
           Due Date:
-          <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+          <input className='ml-1 border-2 border-black-900 ...' type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
         </label>
-        <button type="submit" className='bg-green-500 bg-opacity-75 col-span-2 ... text-black hover:text-red-700 ...'>Create Invoice</button>
+        <button type="submit" className='bg-green-500 bg-opacity-75 col-span-2 text-black hover:text-red-700 ...'>Create Invoice</button>
       </form>
       </div>
     </>

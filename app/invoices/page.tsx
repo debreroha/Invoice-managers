@@ -46,30 +46,30 @@ export default function InvoicesList() {
     <>
       <h1 className='flex justify-center ... mb-4 text-3xl font-bold underline'>Invoices List</h1>
       <div className='flex justify-center ...'>
-        <table>
+        <table className='border-collapse border border-green-800 ...'>
           <thead>
             <tr>
-              <th>InvoiceNum</th>
-              <th>Client Name</th>
-              <th>Client Email</th>
-              <th>Services</th>
-              <th>Total Amount (ETB)</th>
-              <th>Due Date</th>
-              <th>Actions</th>
+              <th className='border border-green-600 ...'>InvoiceNum</th>
+              <th className='border border-green-600 ...'>Client Name</th>
+              <th className='border border-green-600 ...'>Client Email</th>
+              <th className='border border-green-600 ...'>Services</th>
+              <th className='border border-green-600 ...'>Total Amount (ETB)</th>
+              <th className='border border-green-600 ...'>Due Date</th>
+              <th className='border border-green-600 ...'>Actions</th>
             </tr>
           </thead>
           <tbody>
             {invoices.map((invoice) => (
               <tr key={invoice.id}>
-                <td>{invoice.invoiceNumber}</td>
-                <td>{invoice.clientName}</td>
-                <td>{invoice.clientEmail}</td>
-                <td>{invoice.items}</td>
-                <td>{invoice.totalAmount.toFixed(2)} ETB</td>
-                <td>{invoice.dueDate}</td>
-                <td>
-                  <Link className='ml-5 pr-4' href={`/invoices/${invoice.id}/edit`}>Edit</Link>
-                  <Link href={`/invoices/${invoice.id}/delete`}>delete</Link>
+                <td className='border border-green-600 ...'>{invoice.invoiceNumber}</td>
+                <td className='border border-green-600 ...'>{invoice.clientName}</td>
+                <td className='border border-green-600 ...'>{invoice.clientEmail}</td>
+                <td className='border border-green-600 ...'>{invoice.items}</td>
+                <td className='border border-green-600 ...'>{invoice.totalAmount.toFixed(2)}</td>
+                <td className='border border-green-600 ...'>{invoice.dueDate}</td>
+                <td className='border border-green-600 ...'>
+                  <Link className='ml-5 pr-4 text-blue-900 hover:underline' href={`/invoices/${invoice.id}/edit`}>Edit</Link>
+                  <Link className='text-red-900 hover:underline' href={`/invoices/${invoice.id}/delete`}>delete</Link>
                   {/* <button onClick={() => handleDelete(invoice.id)}>Delete</button> */}
                 </td>
               </tr>
