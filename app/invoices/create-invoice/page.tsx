@@ -40,35 +40,71 @@ export default function CreateInvoice() {
 
   return (
     <>
-      <h1 className='flex justify-center ... mb-5 text-3xl font-bold underline'>Create Invoice</h1>
-      <div className='flex justify-center ...'>
-      <form onSubmit={handleSubmit} className='grid grid-cols-2 grid-rows-4 gap-x-5 justify-items-stretch ... '>
-        <label>
-          InvoiceNum:
-          <input className='ml-1 border-2 border-black-900 ...' type="text" value={invoiceNumber} onChange={(e) => setInvoiceNumber(e.target.value)} />
-        </label>
-        <label className='justify-self-center '>
-          ClientName:
-          <input className='ml-1 border-2 border-black-900 ...' type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
-        </label>
-        <label>
-          ClientEmail:
-          <input className='ml-1 border-2 border-black-900 ...' type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
-        </label>
-        <label className='justify-self-center '>
-          Services:
-          <textarea className='ml-1 border-2 border-black-900 ...' value={items} onChange={(e) => setItems(e.target.value)} />
-        </label>
-        <label>
-          TotalAmount (ETB):
-          <input className='ml-1 border-2 border-black-900 ...' type="number" value={totalAmount || ''} onChange={(e) => setTotalAmount(Number(e.target.value))} />
-        </label>
-        <label className='justify-self-center'>
-          Due Date:
-          <input className='ml-1 border-2 border-black-900 ...' type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
-        </label>
-        <button type="submit" className='bg-green-500 bg-opacity-75 col-span-2 text-black hover:text-red-700 ...'>Create Invoice</button>
-      </form>
+      <h1 className='text-center mb-8 text-4xl font-extrabold text-gray-800 underline'>Create Invoice</h1>
+      <div className='max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md'>
+        <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-6'>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Invoice Number</label>
+            <input 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              type="text" 
+              value={invoiceNumber} 
+              onChange={(e) => setInvoiceNumber(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Client Name</label>
+            <input 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              type="text" 
+              value={clientName} 
+              onChange={(e) => setClientName(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Client Email</label>
+            <input 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              type="email" 
+              value={clientEmail} 
+              onChange={(e) => setClientEmail(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Services</label>
+            <textarea 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              value={items} 
+              onChange={(e) => setItems(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Total Amount (ETB)</label>
+            <input 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              type="number" 
+              value={totalAmount || ''} 
+              onChange={(e) => setTotalAmount(Number(e.target.value))} 
+            />
+          </div>
+          <div>
+            <label className='block text-sm font-medium text-gray-700'>Due Date</label>
+            <input 
+              className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+              type="date" 
+              value={dueDate} 
+              onChange={(e) => setDueDate(e.target.value)} 
+            />
+          </div>
+          <div>
+            <button 
+              type="submit" 
+              className='w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+            >
+              Create Invoice
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );
