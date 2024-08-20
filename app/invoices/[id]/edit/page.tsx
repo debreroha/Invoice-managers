@@ -43,6 +43,7 @@ export default function EditInvoice() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+      <header />
       <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Edit Invoice</h1>
         <form onSubmit={handleSubmit} className="space-y-6">

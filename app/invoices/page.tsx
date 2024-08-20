@@ -40,16 +40,26 @@ export default function InvoicesList() {
 
   const handleDelete = async (id: number) => {
     if (confirm('Are you sure you want to delete this invoice?')) {
-      const updatedInvoices = invoices.filter(invoice => invoice.id !== id);
-      setInvoices(updatedInvoices);
+      const updatedInvoices = invoices.filter((invoice) => invoice.id !== id);
 
-      const response = await fetch(`/api/invoices?id=${id}`, {
-        method: 'DELETE',
-      });
+      try {
+        const response = await fetch(`/api/delete/?id=${id}`, {
+          method: 'DELETE',
+        });
 
-      if (!response.ok) {
-        setInvoices([...invoices]);
-        alert('Failed to delete invoice');
+        if (!response.ok) {
+          throw new Error('Failed to delete invoice');
+        }
+        
+        setInvoices(updatedInvoices); // Update the state only after successful deletion
+
+      } catch (error:any) {
+        setError(error.message);
+        alert(error.message);
+        // Optionally: Re-fetch invoices to ensure state consistency
+        const res = await fetch('/api/delete');
+        const data = await res.json();
+        setInvoices(data);
       }
     }
   };
